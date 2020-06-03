@@ -1,6 +1,6 @@
 import { City } from '../../models/city';
 import { Component, OnInit } from '@angular/core';
-import { MockServerService } from '../../services/mock-server.service';
+import { MockServerService } from '../../services/mock-server/mock-server.service';
 
 @Component({
     templateUrl: './cities.component.html'

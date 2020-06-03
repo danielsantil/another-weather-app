@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'cities', pathMatch: 'full' },
-    { path: 'cities', component: CitiesComponent }
-    // add wildcard route
+    { path: 'cities', component: CitiesComponent },
+    { path: '**', redirectTo: 'cities' },
+    { path: '', redirectTo: 'cities', pathMatch: 'full' }
 ];
 
 @NgModule({
