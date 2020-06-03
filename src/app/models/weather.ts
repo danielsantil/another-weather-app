@@ -1,3 +1,5 @@
+import { Coordinates } from './coordinates';
+
 /** API response model */
 export class WeatherModel {
   coord: Coordinates;
@@ -14,11 +16,6 @@ export class WeatherModel {
   /** City id */
   id: number;
   name: string;
-}
-
-export class Coordinates {
-  lon: number;
-  lat: number;
 }
 
 /**

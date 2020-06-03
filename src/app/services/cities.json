@@ -10,16 +10,6 @@
         }
     },
     {
-        "id": 2747373,
-        "name": "The Hague",
-        "state": "",
-        "country": "NL",
-        "coord": {
-            "lon": 4.29861,
-            "lat": 52.076672
-        }
-    },
-    {
         "id": 2950158,
         "name": "Berlin",
         "state": "",
@@ -30,16 +20,6 @@
         }
     },
     {
-        "id": 3178287,
-        "name": "Cologne",
-        "state": "",
-        "country": "IT",
-        "coord": {
-            "lon": 9.94136,
-            "lat": 45.581379
-        }
-    },
-    {
         "id": 3492908,
         "name": "Santo Domingo",
         "state": "",
@@ -47,6 +27,26 @@
         "coord": {
             "lon": -69.988571,
             "lat": 18.50012
+        }
+    },
+    {
+        "id": 2747373,
+        "name": "The Hague",
+        "state": "",
+        "country": "NL",
+        "coord": {
+            "lon": 4.29861,
+            "lat": 52.076672
+        }
+    },
+    {
+        "id": 3178287,
+        "name": "Cologne",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 9.94136,
+            "lat": 45.581379
         }
     },
     {
