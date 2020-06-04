@@ -40,16 +40,6 @@
         }
     },
     {
-        "id": 3178287,
-        "name": "Cologne",
-        "state": "",
-        "country": "IT",
-        "coord": {
-            "lon": 9.94136,
-            "lat": 45.581379
-        }
-    },
-    {
         "id": 3164603,
         "name": "Venice",
         "state": "",

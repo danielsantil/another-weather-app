@@ -8,7 +8,7 @@ import Cities from './cities.json';
 export class MockServerService {
 
     getTopCities(): Promise<City[]> {
-        const cities: City[] = Array.from(Cities).slice(0, 3);
+        const cities: City[] = Array.from(Cities).slice(0, 6);
         return new Promise(resolve => resolve(cities));
     }
 }

@@ -11,6 +11,7 @@ import { WeatherConditionComponent } from './components/city-details/weather-con
 import { SettingsComponent } from './components/settings/settings.component';
 import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 import { TemperaturePipe } from './pipes/temperature.pipe';
+import { TimezonePipe } from './pipes/timezone.pipe';
 import { AppErrorHandlerService } from './services/error-handler/app-error-handler.service';
 import { AppLogger } from './services/error-handler/app-logger';
 import { ConsoleLogger } from './services/error-handler/console-logger';
@@ -26,6 +27,7 @@ export function getErrorHandler(logger: AppLogger): AppErrorHandlerService {
     CityDetailsComponent,
     SettingsComponent,
     TemperaturePipe,
+    TimezonePipe,
     DynamicComponentDirective,
     WeatherConditionComponent,
     TemperatureComponent,

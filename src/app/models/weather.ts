@@ -16,6 +16,8 @@ export class WeatherModel {
   /** City id */
   id: number;
   name: string;
+  rain: Rain;
+  snow: Snow;
 }
 
 /**
@@ -63,6 +65,14 @@ export class System {
   sunrise: number;
   /** Time in unix, UTC */
   sunset: number;
+}
+
+export class Rain {
+  '1h': number;
+}
+
+export class Snow {
+  '1h': number;
 }
 
 export enum Unit {

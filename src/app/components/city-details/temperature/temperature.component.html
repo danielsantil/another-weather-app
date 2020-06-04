@@ -1,6 +1,23 @@
-<div>
-    From temperature component
-</div>
-<div *ngIf="model">
-    {{model | json}}
+<div class="row">
+    <div class="col-6">
+        <h5>Information</h5>
+        <div class="row">
+            <div class="col">
+                <div class="pl-3">Temperature</div>
+                <div class="pl-3">Feels like</div>
+                <div class="pl-3">Pressure</div>
+                <div class="pl-3">Humidity</div>
+                <div class="pl-3">Min. temperature</div>
+                <div class="pl-3">Max. temperature</div>
+            </div>
+            <div class="col">
+                <div>{{model.main.temp | temperature}}</div>
+                <div>{{model.main.feels_like | temperature}}</div>
+                <div>{{model.main.pressure}} hPa</div>
+                <div>{{model.main.humidity}}%</div>
+                <div>{{model.main.temp_min | temperature}}</div>
+                <div>{{model.main.temp_max | temperature}}</div>
+            </div>
+        </div>
+    </div>
 </div>
