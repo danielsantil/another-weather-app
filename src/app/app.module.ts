@@ -1,3 +1,4 @@
+import { TemperaturePipe } from './pipes/temperature.pipe';
 import { ConsoleLogger } from './services/error-handler/console-logger';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -17,7 +18,8 @@ export function getErrorHandler(logger: AppLogger): AppErrorHandlerService {
   declarations: [
     AppComponent,
     CitiesComponent,
-    SettingsComponent
+    SettingsComponent,
+    TemperaturePipe
   ],
   imports: [
     BrowserModule,

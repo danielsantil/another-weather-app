@@ -70,3 +70,22 @@ export enum Unit {
   C = 'metric',
   F = 'imperial'
 }
+
+export class WeatherUnit {
+  static readonly K = new WeatherUnit(Unit.K, 'K');
+  static readonly C = new WeatherUnit(Unit.C, '°C');
+  static readonly F = new WeatherUnit(Unit.F, '°F');
+
+  private constructor(public readonly value: Unit, public readonly label: string) { }
+
+  static from(unit: Unit): WeatherUnit {
+    const type = Object.keys(this).find(key => this[key].value === unit);
+    return this[type];
+  }
+
+  static asList(): WeatherUnit[] {
+    const list = Object.keys(this).map(k => this[k]);
+    return list;
+  }
+}
+

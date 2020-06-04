@@ -1,15 +1,25 @@
-import { Unit } from './../models/weather';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { WeatherUnit } from './../models/weather';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataService {
-    private unitsSubject = new BehaviorSubject<Unit>(Unit.K);
+    private unitsSubject = new BehaviorSubject<WeatherUnit>(WeatherUnit.K);
     public currentUnit = this.unitsSubject.asObservable();
 
-    setUnit(unit: Unit): void {
+    private settingsChangedSubject = new Subject();
+    public settingsChanged = this.settingsChangedSubject.asObservable();
+
+    getUnit(): WeatherUnit {
+        return this.unitsSubject.value;
+    }
+    setUnit(unit: WeatherUnit): void {
         this.unitsSubject.next(unit);
+    }
+
+    notifySettingsChange(): void {
+        this.settingsChangedSubject.next();
     }
 }
