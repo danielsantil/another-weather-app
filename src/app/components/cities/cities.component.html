@@ -18,9 +18,9 @@
                         <div>Feels like: <span>{{model.weather.main.feels_like | temperature}}</span></div>
                     </div>
                     
-                    <button class="btn btn-sm btn-info float-right mt-3">
-                        More details<i class="fas fa-right-arrow ml-1"></i>
-                    </button>
+                    <a class="btn btn-sm btn-info float-right mt-3" routerLink="/cities/{{model.city.id}}">
+                        More details<i class="fas fa-chevron-right ml-1"></i>
+                    </a>
                 </div>
             </div>
         </div>
