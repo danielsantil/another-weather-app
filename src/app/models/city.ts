@@ -1,3 +1,4 @@
+import { WeatherModel } from './weather';
 import { Coordinates } from './coordinates';
 
 export class City {
@@ -6,4 +7,9 @@ export class City {
     state: string;
     country: string;
     coord: Coordinates;
+}
+
+export class CityView {
+    city: City;
+    weather?: WeatherModel;
 }

@@ -1,13 +1,26 @@
 <div>
-    <h3>Cities</h3>
+    <h3 class="mb-3">Cities</h3>
 
     <div class="row">
-        <div class="col" *ngFor="let city of cities">
+        <div class="col" *ngFor="let model of cities">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{city.name}}</h5>
-                    <p class="card-text">{{city.id}} {{city.country}}</p>
-                    <a href="#" class="btn btn-primary">More details<i class="fas fa-right-arrow ml-1"></i></a>
+                    <span class="card-title">
+                        <span class="h5 font-weight-bold">{{model.city.name}}</span>. {{model.city.country}}
+                    </span>
+
+                    <div class="card-text" *ngIf="model.weather">
+                        <div>
+                            <img [src]="iconUrl + model.weather.weather[0].icon + '.png'"
+                                [title]="model.weather.weather[0].description" />
+                        </div>
+                        <div>Temperature: <span>{{model.weather.main.temp | temperature}}</span></div>
+                        <div>Feels like: <span>{{model.weather.main.feels_like | temperature}}</span></div>
+                    </div>
+                    
+                    <button class="btn btn-sm btn-info float-right mt-3">
+                        More details<i class="fas fa-right-arrow ml-1"></i>
+                    </button>
                 </div>
             </div>
         </div>

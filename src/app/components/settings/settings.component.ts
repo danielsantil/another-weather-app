@@ -1,7 +1,8 @@
-import { DataService } from './../../services/data.service';
-import { Unit } from './../../models/weather';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { WeatherUnit } from './../../models/weather';
+import { DataService } from './../../services/data.service';
 
 @Component({
     selector: 'app-settings',
@@ -9,9 +10,10 @@ import { Subscription } from 'rxjs';
 })
 export class SettingsComponent implements OnInit, OnDestroy {
     $currentUnit: Subscription;
-    currentUnit: Unit;
+    currentUnit: WeatherUnit;
+    units = WeatherUnit;
 
-    constructor(private dataService: DataService) { }
+    constructor(private dataService: DataService, private router: Router) { }
 
     ngOnInit(): void {
         this.$currentUnit = this.dataService.currentUnit.subscribe(unit => {
@@ -19,8 +21,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
         });
     }
 
-    changeUnit(newUnit: Unit): void {
+    changeUnit(newUnit: WeatherUnit): void {
         this.dataService.setUnit(newUnit);
+        this.dataService.notifySettingsChange();
     }
 
     ngOnDestroy(): void {
