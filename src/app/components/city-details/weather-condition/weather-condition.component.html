@@ -11,10 +11,10 @@
             </div>
             <div class="col">
                 <div>{{model.weather[0].main}} - {{model.weather[0].description}}</div>
-                <div>{{!model.visibility ? ('na' | translate) : model.visibility + ' m'}}</div>
-                <div>{{!model.clouds ? ('na' | translate) : model.clouds.all + '%'}}</div>
-                <div>{{!model.rain ? ('na' | translate) : model.rain['1h'] + ' mm'}}</div>
-                <div>{{!model.snow ? ('na' | translate) : model.snow['1h'] + ' mm'}}</div>
+                <div>{{model.visibility | blank:('na' | translate)}}</div>
+                <div>{{model.clouds && model.clouds.all + '%' | blank:('na' | translate)}}</div>
+                <div>{{model.rain && model.rain['1h'] + ' mm' | blank:('na' | translate)}}</div>
+                <div>{{model.snow && model.snow['1h'] + ' mm' | blank:('na' | translate)}}</div>
             </div>
         </div>
 

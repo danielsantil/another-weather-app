@@ -12,6 +12,7 @@ import { TemperatureComponent } from './components/city-details/temperature/temp
 import { WeatherConditionComponent } from './components/city-details/weather-condition/weather-condition.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { DynamicComponentDirective } from './directives/dynamic-component.directive';
+import { BlankPipe } from './pipes/blank.pipe';
 import { TemperaturePipe } from './pipes/temperature.pipe';
 import { TimezonePipe } from './pipes/timezone.pipe';
 import { AppErrorHandlerService } from './services/error-handler/app-error-handler.service';
@@ -34,6 +35,7 @@ export function getTranslationLoader(http: HttpClient) {
     SettingsComponent,
     TemperaturePipe,
     TimezonePipe,
+    BlankPipe,
     DynamicComponentDirective,
     WeatherConditionComponent,
     TemperatureComponent,
