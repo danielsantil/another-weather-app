@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-4">
-        <h5>Coordinates</h5>
+        <h5>{{ 'coordinates' | translate }}</h5>
         <div class="row">
             <div class="col">
-                <div class="pl-3">Latitude</div>
-                <div class="pl-3">Longitude</div>
+                <div class="pl-3">{{ 'latitude' | translate }}</div>
+                <div class="pl-3">{{ 'longitude' | translate }}</div>
             </div>
             <div class="col">
                 <div>{{model.coord.lat}}</div>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="row mt-4">
-            <h5 class="col">Time zone</h5>
+            <h5 class="col">{{ 'timeZone' | translate }}</h5>
             <div class="col">{{model.timezone | timezone}}</div>
         </div>
     </div>

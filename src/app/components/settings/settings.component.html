@@ -1,12 +1,24 @@
 <div>
-    <h4>Settings</h4>
+    <h4>{{ 'settings' | translate }}</h4>
 
     <div class="col my-3">
-        <div class="mb-2">Current temperature unit</div>
+        <div class="mb-2">{{ 'currentUnit' | translate }}</div>
         <div class="list-group list-group-horizontal col-4 text-center">
             <button *ngFor="let unit of units.asList()" class="list-group-item list-group-item-action"
-                [class.active]="currentUnit === unit" (click)="changeUnit(unit)" [title]="unit.value">
+                [class.active]="currentUnit === unit" [disabled]="currentUnit === unit"
+                (click)="changeUnit(unit)" [title]="unit.value">
                 {{unit.label}}
+            </button>
+        </div>
+    </div>
+
+    <div class="col my-3">
+        <div class="mb-2">{{ 'currentLang' | translate }}</div>
+        <div class="list-group list-group-horizontal col-4 text-center">
+            <button *ngFor="let lang of translateService.langs" class="list-group-item list-group-item-action"
+                [class.active]="translateService.currentLang === lang" (click)="changeLang(lang)"
+                [disabled]="translateService.currentLang === lang">
+                {{lang | uppercase}}
             </button>
         </div>
     </div>

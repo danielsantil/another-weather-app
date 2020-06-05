@@ -1,6 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CitiesComponent } from './components/cities/cities.component';
@@ -20,6 +22,10 @@ export function getErrorHandler(logger: AppLogger): AppErrorHandlerService {
   return new AppErrorHandlerService(logger);
 }
 
+export function getTranslationLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +42,14 @@ export function getErrorHandler(logger: AppLogger): AppErrorHandlerService {
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: getTranslationLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     ConsoleLogger,

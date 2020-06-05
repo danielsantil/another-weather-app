@@ -13,7 +13,7 @@
         <div class="col">
             <nav class="nav nav-tabs nav-fill">
                 <a *ngFor="let tab of tabs" class="nav-item nav-link btn text-primary"
-                    [ngClass]="{ 'active text-dark' : activeTab === tab }" (click)="changeTab(tab)">{{tab.name}}</a>
+                    [ngClass]="{ 'active text-dark' : activeTab === tab }" (click)="changeTab(tab)">{{ tab.name | translate }}</a>
             </nav>
 
             <div class="my-4">

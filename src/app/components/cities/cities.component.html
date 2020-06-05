@@ -1,5 +1,5 @@
 <div>
-    <h3 class="mb-3">Cities</h3>
+    <h3 class="mb-3">{{ 'cities' | translate }}</h3>
 
     <div class="row">
         <div class="m-3" *ngFor="let model of cities">
@@ -15,12 +15,12 @@
                                 <img [src]="iconUrl + model.weather.weather[0].icon + '.png'"
                                     [title]="model.weather.weather[0].description" />
                             </div>
-                            <div>Temperature: <span>{{model.weather.main.temp | temperature}}</span></div>
-                            <div>Feels like: <span>{{model.weather.main.feels_like | temperature}}</span></div>
+                            <div>{{ 'temperature' | translate }}: <span>{{model.weather.main.temp | temperature}}</span></div>
+                            <div>{{ 'feelsLike' | translate }}: <span>{{model.weather.main.feels_like | temperature}}</span></div>
                         </div>
 
                         <a class="btn btn-sm btn-info float-right mt-3" routerLink="/cities/{{model.city.id}}">
-                            More details<i class="fas fa-chevron-right ml-1"></i>
+                            {{ 'moreDetails' | translate }}<i class="fas fa-chevron-right ml-1"></i>
                         </a>
                     </div>
                 </div>

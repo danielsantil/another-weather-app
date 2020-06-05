@@ -1,25 +1,25 @@
 <div class="row">
     <div class="col">
-        <h5>Conditions</h5>
+        <h5>{{ 'conditions' | translate }}</h5>
         <div class="row">
             <div class="col-4">
-                <div class="pl-3">Description</div>
-                <div class="pl-3">Visibility</div>
-                <div class="pl-3">Clouds</div>
-                <div class="pl-3">Rain volume (last hour)</div>
-                <div class="pl-3">Snow volume (last hour)</div>
+                <div class="pl-3">{{ 'description' | translate }}</div>
+                <div class="pl-3">{{ 'visibility' | translate }}</div>
+                <div class="pl-3">{{ 'clouds' | translate }}</div>
+                <div class="pl-3">{{ 'rainVolume' | translate }}</div>
+                <div class="pl-3">{{ 'snowVolume' | translate }}</div>
             </div>
             <div class="col">
                 <div>{{model.weather[0].main}} - {{model.weather[0].description}}</div>
-                <div>{{model.visibility ? model.visibility + ' m' : 'N/A'}}</div>
-                <div>{{!model.clouds ? 'N/A' : model.clouds.all + '%'}}</div>
-                <div>{{!model.rain ? 'N/A' : model.rain['1h'] + ' mm'}}</div>
-                <div>{{!model.snow ? 'N/A' : model.snow['1h'] + ' mm'}}</div>
+                <div>{{!model.visibility ? ('na' | translate) : model.visibility + ' m'}}</div>
+                <div>{{!model.clouds ? ('na' | translate) : model.clouds.all + '%'}}</div>
+                <div>{{!model.rain ? ('na' | translate) : model.rain['1h'] + ' mm'}}</div>
+                <div>{{!model.snow ? ('na' | translate) : model.snow['1h'] + ' mm'}}</div>
             </div>
         </div>
 
         <div class="row mt-4">
-            <h5 class="col-4">Time of data calculation</h5>
+            <h5 class="col-4">{{ 'calculationDate' | translate }}</h5>
             <div class="col">{{model.dt * 1000 | date:'medium'}} (UTC)</div>
         </div>
     </div>

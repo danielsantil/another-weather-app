@@ -21,9 +21,9 @@ export class CityDetailsComponent implements OnInit, OnDestroy {
     iconUrl = environment.iconsUrl;
     activeTab: CityDetailsTab;
     tabs: CityDetailsTab[] = [
-        { name: 'Weather condition', component: WeatherConditionComponent },
-        { name: 'Temperature', component: TemperatureComponent },
-        { name: 'City information', component: CityInformationComponent },
+        { name: 'weatherCondition', component: WeatherConditionComponent },
+        { name: 'temperature', component: TemperatureComponent },
+        { name: 'cityInfo', component: CityInformationComponent },
     ];
     $settingsChange: Subscription;
 

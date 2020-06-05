@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-6">
-        <h5>Information</h5>
+        <h5>{{ 'information' | translate }}</h5>
         <div class="row">
             <div class="col">
-                <div class="pl-3">Temperature</div>
-                <div class="pl-3">Feels like</div>
-                <div class="pl-3">Pressure</div>
-                <div class="pl-3">Humidity</div>
-                <div class="pl-3">Min. temperature</div>
-                <div class="pl-3">Max. temperature</div>
+                <div class="pl-3">{{ 'temperature' | translate }}</div>
+                <div class="pl-3">{{ 'feelsLike' | translate }}</div>
+                <div class="pl-3">{{ 'pressure' | translate }}</div>
+                <div class="pl-3">{{ 'humidity' | translate }}</div>
+                <div class="pl-3">{{ 'minTemp' | translate }}</div>
+                <div class="pl-3">{{ 'maxTemp' | translate }}</div>
             </div>
             <div class="col">
                 <div>{{model.main.temp | temperature}}</div>
