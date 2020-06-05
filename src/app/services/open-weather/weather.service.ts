@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { environment } from './../../environments/environment';
-import { WeatherModel } from './../models/weather';
-import { DataService } from './data.service';
+import { environment } from '../../../environments/environment';
+import { WeatherModel } from '../../models/weather';
+import { DataService } from '../data.service';
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +20,6 @@ export class WeatherService {
         url += '&units=' + this.dataService.getUnit().value;
         url += '&lang=' + this.translateService.currentLang;
 
-        return this.http.get<WeatherModel>(`${url}&appid=${this.apiKey}`).toPromise();
+        return this.http.get<WeatherModel>(url).toPromise();
     }
 }

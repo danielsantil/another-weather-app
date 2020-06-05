@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MockServerService } from '../../services/mock-server/mock-server.service';
+import { WeatherService } from '../../services/open-weather/weather.service';
 import { environment } from './../../../environments/environment';
 import { CityView } from './../../models/city';
 import { DataService } from './../../services/data.service';
-import { WeatherService } from './../../services/weather.service';
 
 @Component({
     templateUrl: './cities.component.html'

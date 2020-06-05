@@ -1,12 +1,12 @@
 import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { WeatherService } from '../../services/open-weather/weather.service';
 import { environment } from './../../../environments/environment';
 import { DynamicComponentDirective } from './../../directives/dynamic-component.directive';
 import { CityDetailsTab } from './../../models/city-details-tab';
 import { WeatherModel } from './../../models/weather';
 import { DataService } from './../../services/data.service';
-import { WeatherService } from './../../services/weather.service';
 import { CityInformationComponent } from './city-information/city-information.component';
 import { TemperatureComponent } from './temperature/temperature.component';
 import { WeatherBaseComponent } from './weather-base-component';

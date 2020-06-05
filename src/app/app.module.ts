@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -18,6 +18,7 @@ import { TimezonePipe } from './pipes/timezone.pipe';
 import { AppErrorHandlerService } from './services/error-handler/app-error-handler.service';
 import { AppLogger } from './services/error-handler/app-logger';
 import { ConsoleLogger } from './services/error-handler/console-logger';
+import { OpenWeatherInterceptor } from './services/open-weather/open-weather-interceptor';
 
 export function getErrorHandler(logger: AppLogger): AppErrorHandlerService {
   return new AppErrorHandlerService(logger);
@@ -55,7 +56,8 @@ export function getTranslationLoader(http: HttpClient) {
   ],
   providers: [
     ConsoleLogger,
-    { provide: ErrorHandler, useFactory: getErrorHandler, deps: [ConsoleLogger] }
+    { provide: ErrorHandler, useFactory: getErrorHandler, deps: [ConsoleLogger] },
+    { provide: HTTP_INTERCEPTORS, useClass: OpenWeatherInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
