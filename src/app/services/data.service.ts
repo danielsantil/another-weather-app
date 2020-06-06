@@ -6,7 +6,7 @@ import { WeatherUnit } from './../models/weather';
     providedIn: 'root'
 })
 export class DataService {
-    private unitsSubject = new BehaviorSubject<WeatherUnit>(WeatherUnit.K);
+    private unitsSubject = new BehaviorSubject<WeatherUnit>(WeatherUnit.C);
     public currentUnit = this.unitsSubject.asObservable();
 
     private settingsChangedSubject = new Subject();
