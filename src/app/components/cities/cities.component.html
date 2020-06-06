@@ -1,28 +1,26 @@
 <div>
-    <h3 class="mb-3">{{ 'cities' | translate }}</h3>
+    <h1 class="mb-3 font-weight-light">{{ 'cities' | translate }}</h1>
 
     <div class="row">
-        <div class="m-3" *ngFor="let model of cities">
+        <div class="m-3" *ngFor="let model of data">
             <div class="card">
-                <div class="card-body">
+                <div *ngIf="model.name" class="card-body">
                     <span class="card-title">
-                        <span class="h5">{{model.city.name}}</span>. {{model.city.country}}
+                        <span class="h5">{{model.name}}</span>. {{model.sys.country}}
                     </span>
 
-                    <div *ngIf="model.weather">
-                        <div class="card-text">
-                            <div>
-                                <img [src]="iconUrl + model.weather.weather[0].icon + '.png'"
-                                    [title]="model.weather.weather[0].description" />
-                            </div>
-                            <div>{{ 'temperature' | translate }}: <span>{{model.weather.main.temp | temperature}}</span></div>
-                            <div>{{ 'feelsLike' | translate }}: <span>{{model.weather.main.feels_like | temperature}}</span></div>
+                    <div class="card-text">
+                        <div>
+                            <img [src]="iconUrl + model.weather[0].icon + '.png'"
+                                [title]="model.weather[0].description" />
                         </div>
-
-                        <a class="btn btn-sm btn-info float-right mt-3" routerLink="/cities/{{model.city.id}}">
-                            {{ 'moreDetails' | translate }}<i class="fas fa-chevron-right ml-1"></i>
-                        </a>
+                        <div>{{ 'temperature' | translate }}: <span>{{model.main.temp | temperature}}</span></div>
+                        <div>{{ 'feelsLike' | translate }}: <span>{{model.main.feels_like | temperature}}</span></div>
                     </div>
+
+                    <a class="btn btn-sm btn-info float-right mt-3" routerLink="/cities/{{model.id}}">
+                        {{ 'moreDetails' | translate }}<i class="fas fa-chevron-right ml-1"></i>
+                    </a>
                 </div>
             </div>
         </div>

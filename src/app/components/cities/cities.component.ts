@@ -3,15 +3,15 @@ import { Subscription } from 'rxjs';
 import { MockServerService } from '../../services/mock-server/mock-server.service';
 import { WeatherService } from '../../services/open-weather/weather.service';
 import { environment } from './../../../environments/environment';
-import { CityView } from './../../models/city';
+import { WeatherModel } from './../../models/weather';
 import { DataService } from './../../services/data.service';
 
 @Component({
     templateUrl: './cities.component.html'
 })
 export class CitiesComponent implements OnInit, OnDestroy {
-    cities: CityView[] = [];
     iconUrl = environment.iconsUrl;
+    data: WeatherModel[] = [];
 
     $settingsChange: Subscription;
 
@@ -26,17 +26,26 @@ export class CitiesComponent implements OnInit, OnDestroy {
     }
 
     async getData(): Promise<void> {
+        this.data = [];
         const citiesResponse = await this.mockServer.getTopCities();
-        this.cities = citiesResponse.map(x => {
-            const cityView: CityView = { city: x };
-            this.getWeatherInfo(cityView);
-            return cityView;
+
+        // in order to keep the elements order, we first create each object and add it to the array.
+        // later, each item is replaced by its full version and keep the initial index
+        this.data = citiesResponse.map(x => {
+            const entry = new WeatherModel();
+            entry.id = x.id;
+            return entry;
         });
+
+        this.fillData();
     }
 
-    async getWeatherInfo(cityView: CityView): Promise<void> {
-        const weatherResponse = await this.weather.getById(cityView.city.id);
-        cityView.weather = weatherResponse;
+    private fillData(): void {
+        this.data.forEach(async city => {
+            const response = await this.weather.getById(city.id);
+            const index = this.data.indexOf(this.data.find(x => x.id === city.id));
+            this.data.splice(index, 1, response);
+        });
     }
 
     ngOnDestroy(): void {

@@ -10,7 +10,7 @@
                 <div class="pl-3">{{ 'snowVolume' | translate }}</div>
             </div>
             <div class="col">
-                <div>{{model.weather[0].main}} - {{model.weather[0].description}}</div>
+                <div>{{model.weather[0].description | titlecase}}</div>
                 <div>{{model.visibility | blank:('na' | translate)}}</div>
                 <div>{{model.clouds && model.clouds.all + '%' | blank:('na' | translate)}}</div>
                 <div>{{model.rain && model.rain['1h'] + ' mm' | blank:('na' | translate)}}</div>

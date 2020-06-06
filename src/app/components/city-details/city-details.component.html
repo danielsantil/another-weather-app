@@ -3,8 +3,8 @@
         <a class="text-info mr-3 my-auto" style="cursor: pointer;" (click)="goToOverview()">
             <i class="fas fa-lg fa-chevron-left"></i>
         </a>
-        <span><span class="h4">{{weather.name}}</span>.
-            <span>{{weather.sys.country}}</span>
+        <span><span class="h1 font-weight-light">{{weather.name}}</span>
+            <span class="ml-2">{{weather.sys.country}}</span>
             <img [src]="iconUrl + weather.weather[0].icon + '.png'" [title]="weather.weather[0].description" />
         </span>
     </div>

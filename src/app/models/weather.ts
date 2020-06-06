@@ -1,5 +1,3 @@
-import { Coordinates } from './coordinates';
-
 /** API response model */
 export class WeatherModel {
   coord: Coordinates;
@@ -65,6 +63,11 @@ export class System {
   sunrise: number;
   /** Time in unix, UTC */
   sunset: number;
+}
+
+export class Coordinates {
+  lon: number;
+  lat: number;
 }
 
 export class Rain {
